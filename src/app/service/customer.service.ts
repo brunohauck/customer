@@ -53,6 +53,20 @@ export class CustomerService {
       );
   }
 
+    /** GET: get customer by ID Function*/
+    getCustomerById(customer: Customer | number): Observable<Customer> {
+      const id = typeof customer === 'number' ? customer : customer.id;
+      var url: string = this.BASE_URL + '/api/v1/customer_data/' + id;
+      return this.http.get<Customer>(url, httpOptions)
+        .pipe(
+          tap(_ => 
+            console.log(`Get Customer id=${id}`)
+            ),
+          catchError(this.handleError<Customer>('deleteCustomer'))
+      );
+    }
+
+
   /** DELETE: delete customer Function*/
   deleteCustomer(customer: Customer | number): Observable<Customer> {
     const id = typeof customer === 'number' ? customer : customer.id;

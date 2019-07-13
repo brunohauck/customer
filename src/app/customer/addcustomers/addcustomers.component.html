@@ -1,16 +1,36 @@
-
 <div class="example-container">
     <mat-form-field>
-      <input matInput placeholder="Input">
+        <input matInput placeholder="Name" [(ngModel)]="customer.name" name="name">
     </mat-form-field>
-  
     <mat-form-field>
-      <textarea matInput placeholder="Textarea"></textarea>
+        <!--
+            <input matInput placeholder="Enter your email" [(ngModel)]="customer.phone" name="phone" [formControl]="phone" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        -->
+        <input matInput placeholder="email" [(ngModel)]="customer.email" name="email">
     </mat-form-field>
-  
     <mat-form-field>
-      <mat-select placeholder="Select">
-        <mat-option value="option">Option</mat-option>
-      </mat-select>
+        <!--
+        <example-tel-input placeholder="Phone number" [(ngModel)]="customer.phone" name="phone" required></example-tel-input>
+        <mat-icon matSuffix>phone</mat-icon>
+        <mat-hint>Include area code</mat-hint>
+        -->
+        <input matInput placeholder="Phone number" [(ngModel)]="customer.phone" name="phone">
     </mat-form-field>
-  </div>
+    <mat-form-field>
+        <textarea matInput placeholder="Address" [(ngModel)]="customer.address" name="address"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="City" [(ngModel)]="customer.city" name="city">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="State" [(ngModel)]="customer.state" name="state">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Zip Code" [(ngModel)]="customer.zipcode" name="zipcode">
+    </mat-form-field>
+    <div class="example-button-row">
+        <button mat-raised-button color="primary" (click)="submitCustomerForm()">{{title}}</button>
+    </div>
+    
+</div>
