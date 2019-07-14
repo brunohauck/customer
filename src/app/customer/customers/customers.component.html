@@ -1,19 +1,24 @@
-<div class="example-container">
-    <mat-card *ngFor='let customer of customers' class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{ customer.name }}</mat-card-title>
-    
-        </mat-card-header>
-        <mat-card-content>
-    
-          <p><strong>Phone:</strong> {{ customer.phone }} </p>
-          <p><strong>Email:</strong> {{ customer.email }}</p>
-          <p><strong>Address:</strong> {{ customer.address }}</p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button (click)="editCustmerClick(customer)">EDIT</button>
-          <button mat-button (click)="deleteCustomerClick(customer)">DELETE</button>
-        </mat-card-actions>
-    </mat-card>
+<div class="example-container mat-elevation-z8">
+    <div class="example-loading-shade" *ngIf="isLoadingResults">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start center">
+        <mat-card *ngFor='let customer of customers' class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{ customer.name }}</mat-card-title>
+        
+            </mat-card-header>
+            <mat-card-content>
+        
+              <p><strong>Phone:</strong> {{ customer.phone }} </p>
+              <p><strong>Email:</strong> {{ customer.email }}</p>
+              <p><strong>Address:</strong> {{ customer.address }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button (click)="editCustmerClick(customer)">EDIT</button>
+              <button mat-button (click)="deleteCustomerClick(customer)">DELETE</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
 </div>

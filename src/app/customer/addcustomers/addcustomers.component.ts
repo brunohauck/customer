@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/model/customer';
 import { CustomerService } from 'src/app/service/customer.service';
-import { ActivatedRoute } from '@angular/router';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 @Component({
   selector: 'app-addcustomers',
   templateUrl: './addcustomers.component.html',
@@ -10,39 +10,58 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AddcustomersComponent implements OnInit {
   customer: Customer;
+  customerForm: FormGroup;
   title: String;
+  id: number;
+  isLoadingResults = false;
   constructor(
     private service: CustomerService, 
-    private routeAct: ActivatedRoute) { 
-    this.customer = new Customer(null,null,null,null,null,null,null,null)
-    this.customer.id = routeAct.snapshot.params['id'];
+    private routeAct: ActivatedRoute,
+    private router: Router,
+    private formBuilder: FormBuilder) { 
+    
+    this.id = routeAct.snapshot.params['id'];
     this.title = 'Add';
   }
   ngOnInit() {
-    if(this.customer.id){
+
+    if(this.id){
       this.title = 'Edit';
       this.customer = JSON.parse(localStorage.getItem('customer'));
+      this.customerForm = this.formBuilder.group({
+        'name' : [this.customer.name, Validators.required],
+        'email' : [this.customer.email, Validators.required],
+        'phone' : [this.customer.phone, Validators.required],
+        'address' : [this.customer.address, Validators.required],
+        'city' : [this.customer.city, Validators.required],
+        'state' : [this.customer.state, Validators.required],
+        'zipcode' : [this.customer.zipcode, Validators.required]
+      });
+    }else{
+      this.customerForm = this.formBuilder.group({
+        'name' : [null, Validators.required],
+        'email' : [null, Validators.required],
+        'phone' : [null, Validators.required],
+        'address' : [null, Validators.required],
+        'city' : [null, Validators.required],
+        'state' : [null, Validators.required],
+        'zipcode' : [null, Validators.required]
+      });
     }
   }
-  
-  getCustomerDataById(){
-    console.log(this.customer)
-    this.service.getCustomerById(this.customer.id)
-    .subscribe(customer => { 
-      console.log(customer) 
-    },
-      err => {
-        console.log(err);
-      }
-    );
-  }
-  submitCustomerForm(){
-    if(this.customer.id){
+
+  submitCustomerForm(form:NgForm){
+    this.isLoadingResults = true;
+    this.customer = this.customerForm.value;
+    if(this.id){
+      this.customer.id = this.id;
       this.service.editCustomer(this.customer)
       .subscribe(response => { 
-        console.log(response) 
+        this.isLoadingResults = false;
+        this.router.navigate(['/listcustomer']);
       },
         err => {
+          this.isLoadingResults = false;
           console.log(err);
         }
       );
@@ -50,8 +69,11 @@ export class AddcustomersComponent implements OnInit {
       this.service.addCustomer(this.customer)
       .subscribe(response => { 
         console.log(response) 
+        this.isLoadingResults = false;
+        this.router.navigate(['/listcustomer']);
       },
         err => {
+          this.isLoadingResults = false;
           console.log(err);
         }
       );

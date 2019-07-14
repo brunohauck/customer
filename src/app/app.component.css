@@ -3,3 +3,22 @@
        Every toolbar row uses a flexbox row layout. */
     flex: 1 1 auto;
   }
+
+  .example-container img {
+    width: 100%;
+    height: auto;
+  } 
+
+.black-icon {
+    color: black;
+}
+/* Note: If you're using an SVG icon, you should make the class target the `<svg>` element */
+.black-icon svg {
+    fill: black;
+}  
+
+.example-container {
+    display: flex;
+    background: #ECF0F1;  
+    flex-direction: column;
+}

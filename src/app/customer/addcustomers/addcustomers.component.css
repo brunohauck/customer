@@ -1,13 +1,32 @@
-.example-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .example-container > * {
-    width: 100%;
-  }
+.example-card{
+  width: 500px;
+}
 
-.example-button-row button,
-.example-button-row a {
-  margin-right: 8px;
+/* Structure */
+.example-container {
+  position: relative;
+  padding: 10px;
+  height: 750px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 60%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-full-width:nth-last-child() {
+  margin-bottom: 10px;
+}
+
+.button-row {
+  margin: 10px 0;
+}
+
+.mat-flat-button {
+  margin: 5px;
 }

@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class CustomersComponent implements OnInit {
 
   customers: Customer[];
+  isLoadingResults = true;
   constructor(
     private service: CustomerService,
     private router: Router
@@ -26,6 +27,7 @@ export class CustomersComponent implements OnInit {
     this.service.getCustomers()
       .subscribe(
         customers => {
+          this.isLoadingResults = false;
           this.customers = customers;
         },
         error => {
@@ -41,8 +43,10 @@ export class CustomersComponent implements OnInit {
     this.service.deleteCustomer(customer.id)
     .pipe(first())
     .subscribe(
-      response =>  
-        console.log(response),
+      response => {
+        console.log(response)
+        this.getUsers();
+      },
       err => {
         console.log(err);
       }

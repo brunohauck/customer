@@ -1,14 +1,24 @@
-<mat-toolbar color="primary">
-  <span><a [routerLink]="['/']">Home</a> CRUD Customer</span>
+<mat-toolbar color="white">
+
+  <img src="/assets/tidy_logo_new.png">
+
   <!-- This fills the remaining space of the current row -->
   <span class="example-fill-remaining-space"></span>
-  <span ><a [routerLink]="['/addcustomer']">Add Customer</a></span>
+  <span>
+    <a [routerLink]="['/']">
+      <mat-icon class="black-icon">people</mat-icon>
+    </a>
+  </span>
+  <span>
+    <a [routerLink]="['/addcustomer']">
+      <mat-icon class="black-icon">add_circle</mat-icon>
+    </a>
+  </span>
+
 </mat-toolbar>
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
 
-<router-outlet></router-outlet>
+<div class="main-container">
+  <img src='/assets/background_image.png' />
+  <router-outlet></router-outlet>
+</div>

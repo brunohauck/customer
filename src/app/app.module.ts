@@ -15,7 +15,13 @@ import { MatToolbarModule,
          MatGridListModule, 
          MatCardModule, 
          MatInputModule,
-         MatMenuModule } from '@angular/material';
+         MatMenuModule,
+         MatPaginatorModule,
+         MatProgressSpinnerModule,
+         MatSortModule,
+         MatTableModule
+        } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -43,7 +49,13 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatSortModule,
+    MatTableModule,
+    FlexLayoutModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
