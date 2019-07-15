@@ -1,24 +1,22 @@
 <mat-toolbar color="white">
-
   <img src="/assets/tidy_logo_new.png">
-
-  <!-- This fills the remaining space of the current row -->
   <span class="example-fill-remaining-space"></span>
-  <span>
-    <a [routerLink]="['/']">
-      <mat-icon class="black-icon">people</mat-icon>
-    </a>
-  </span>
-  <span>
-    <a [routerLink]="['/addcustomer']">
-      <mat-icon class="black-icon">add_circle</mat-icon>
-    </a>
-  </span>
-
+  <div fxLayout="row" fxLayoutGap="20px">
+    <span>
+      <a [routerLink]="['/']">
+        <mat-icon class="black-icon">people</mat-icon>
+      </a>
+    </span>
+    <span>
+      <a [routerLink]="['/addcustomer']">
+        <mat-icon class="black-icon">add_circle</mat-icon>
+      </a>
+    </span>
+  </div>
 </mat-toolbar>
-<!--The content below is only a placeholder and can be replaced.-->
-
 <div class="main-container">
-  <img src='/assets/background_image.png' />
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <img src='/assets/background_image.png' />
+  </div>
   <router-outlet></router-outlet>
 </div>
