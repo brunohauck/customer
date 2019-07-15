@@ -15,11 +15,11 @@ export class AddcustomersComponent implements OnInit {
   id: number;
   isLoadingResults = false;
   constructor(
-    private service: CustomerService, 
+    private service: CustomerService,
     private routeAct: ActivatedRoute,
     private router: Router,
-    private formBuilder: FormBuilder) { 
-    
+    private formBuilder: FormBuilder) {
+
     this.id = routeAct.snapshot.params['id'];
     this.title = 'Add';
   }
@@ -27,6 +27,8 @@ export class AddcustomersComponent implements OnInit {
 
     if(this.id){
       this.title = 'Edit';
+      // This is not the ideal way to pass information to another component.
+      // There are other forms such as Inputs, Redux and Services, but due to lack of time I decided to use this technique.
       this.customer = JSON.parse(localStorage.getItem('customer'));
       this.customerForm = this.formBuilder.group({
         'name' : [this.customer.name, Validators.required],
@@ -56,7 +58,7 @@ export class AddcustomersComponent implements OnInit {
     if(this.id){
       this.customer.id = this.id;
       this.service.editCustomer(this.customer)
-      .subscribe(response => { 
+      .subscribe(response => {
         this.isLoadingResults = false;
         this.router.navigate(['/listcustomer']);
       },
@@ -67,8 +69,8 @@ export class AddcustomersComponent implements OnInit {
       );
     }else{
       this.service.addCustomer(this.customer)
-      .subscribe(response => { 
-        console.log(response) 
+      .subscribe(response => {
+        console.log(response)
         this.isLoadingResults = false;
         this.router.navigate(['/listcustomer']);
       },

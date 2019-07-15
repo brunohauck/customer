@@ -6,14 +6,14 @@ import { AppComponent } from './app.component';
 import { CustomersComponent } from './customer/customers/customers.component';
 import { AddcustomersComponent } from './customer/addcustomers/addcustomers.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, 
-         MatFormFieldModule, 
-         MatButtonModule, 
-         MatSidenavModule, 
-         MatIconModule, 
-         MatListModule, 
-         MatGridListModule, 
-         MatCardModule, 
+import { MatToolbarModule,
+         MatFormFieldModule,
+         MatButtonModule,
+         MatSidenavModule,
+         MatIconModule,
+         MatListModule,
+         MatGridListModule,
+         MatCardModule,
          MatInputModule,
          MatMenuModule,
          MatPaginatorModule,
@@ -55,7 +55,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatSortModule,
     MatTableModule,
     FlexLayoutModule
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

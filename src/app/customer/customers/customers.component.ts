@@ -35,11 +35,12 @@ export class CustomersComponent implements OnInit {
         });
   }
   editCustmerClick(customer: Customer){
+    // This is not the ideal way to pass information to another component.
+    // There are other forms such as Inputs, Redux and Services, but due to lack of time I decided to use this technique.
     localStorage.setItem('customer', JSON.stringify(customer));
     this.router.navigate(['editcustomer', customer.id]);
   }
   deleteCustomerClick(customer: Customer){
-    console.log("Entrou no Delete")
     this.service.deleteCustomer(customer.id)
     .pipe(first())
     .subscribe(
@@ -51,5 +52,5 @@ export class CustomersComponent implements OnInit {
         console.log(err);
       }
     );
-  }  
+  }
 }

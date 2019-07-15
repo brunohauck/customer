@@ -1,5 +1,5 @@
 .example-fill-remaining-space {
-    /* This fills the remaining space, by using flexbox. 
+    /* This fills the remaining space, by using flexbox.
        Every toolbar row uses a flexbox row layout. */
     flex: 1 1 auto;
   }
@@ -7,7 +7,7 @@
   .example-container img {
     width: 100%;
     height: auto;
-  } 
+  }
 
 .black-icon {
     color: black;
@@ -15,10 +15,15 @@
 /* Note: If you're using an SVG icon, you should make the class target the `<svg>` element */
 .black-icon svg {
     fill: black;
-}  
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
 
 .example-container {
     display: flex;
-    background: #ECF0F1;  
+    background: #ECF0F1;
     flex-direction: column;
 }

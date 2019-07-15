@@ -1,24 +1,26 @@
 <div class="example-container mat-elevation-z8">
-    <div class="example-loading-shade" *ngIf="isLoadingResults">
-        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
-    </div>
-    <div fxLayout="row" fxLayoutAlign="start center">
-        <mat-card *ngFor='let customer of customers' class="example-card">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>{{ customer.name }}</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <p><strong>Phone:</strong> {{ customer.phone }} </p>
-              <p><strong>Email:</strong> {{ customer.email }}</p>
-              <p><strong>Address:</strong> {{ customer.address }}</p>
-              <p><strong>City: </strong> {{customer.city}}<strong>  State:</strong> {{ customer.state }}</p>
-              <p><strong>Zip Code: </strong>{{customer.zipcode}}</p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-button (click)="editCustmerClick(customer)">EDIT</button>
-              <button mat-button (click)="deleteCustomerClick(customer)">DELETE</button>
-            </mat-card-actions>
+  <div class="example-loading-shade" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="32px" fxLayoutAlign="flex-start">
+    <ng-container>
+        <mat-card *ngFor='let customer of customers' fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%" class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{ customer.name }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p><strong>Phone:</strong> {{ customer.phone }} </p>
+            <p><strong>Email:</strong> {{ customer.email }}</p>
+            <p><strong>Address:</strong> {{ customer.address }}</p>
+            <p><strong>City: </strong> {{customer.city}}<strong> State:</strong> {{ customer.state }}</p>
+            <p><strong>Zip Code: </strong>{{customer.zipcode}}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button (click)="editCustmerClick(customer)">EDIT</button>
+            <button mat-button (click)="deleteCustomerClick(customer)">DELETE</button>
+          </mat-card-actions>
         </mat-card>
-    </div>
+    </ng-container>
+  </div>
 </div>

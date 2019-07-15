@@ -4,51 +4,54 @@
     </div>
     <div class="main-div">
         <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>{{title}} Customer</mat-card-title>
+            </mat-card-header>
             <form [formGroup]="customerForm" (ngSubmit)="submitCustomerForm(customerForm.value)">
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Name" formControlName="name" [errorStateMatcher]="matcher">
+                    <input matInput placeholder="Name" formControlName="name" >
                     <mat-error>
                         <span *ngIf="!customerForm.get('name').valid && customerForm.get('name').touched">Please
                             enter Name</span>
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Email" formControlName="email" [errorStateMatcher]="matcher">
+                    <input matInput placeholder="Email" formControlName="email" >
                     <mat-error>
                         <span *ngIf="!customerForm.get('email').valid && customerForm.get('email').touched">Please
                             enter Email</span>
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Phone" formControlName="phone" [errorStateMatcher]="matcher">
+                    <input matInput placeholder="Phone" formControlName="phone" >
                     <mat-error>
                         <span *ngIf="!customerForm.get('phone').valid && customerForm.get('phone').touched">Please
                             enter Phone Number</span>
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Address" formControlName="address" [errorStateMatcher]="matcher">
+                    <input matInput placeholder="Address" formControlName="address" >
                     <mat-error>
                         <span *ngIf="!customerForm.get('address').valid && customerForm.get('address').touched">Please
                             enter Phone Number</span>
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="City" formControlName="city" [errorStateMatcher]="matcher">
+                    <input matInput placeholder="City" formControlName="city" >
                     <mat-error>
                         <span *ngIf="!customerForm.get('city').valid && customerForm.get('city').touched">Please
                             enter City</span>
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Estate" formControlName="state" [errorStateMatcher]="matcher">
+                    <input matInput placeholder="Estate" formControlName="state" >
                     <mat-error>
                         <span *ngIf="!customerForm.get('state').valid && customerForm.get('state').touched">Please
                             enter Estate</span>
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Zip" formControlName="zipcode" [errorStateMatcher]="matcher">
+                    <input matInput placeholder="Zip" formControlName="zipcode" >
                     <mat-error>
                         <span *ngIf="!customerForm.get('zipcode').valid && customerForm.get('zipcode').touched">Please
                             enter Estate</span>
@@ -62,5 +65,4 @@
             </form>
         </mat-card>
     </div>
-
 </div>
